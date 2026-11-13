@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz cumpleaños, mi amorcito</title>
+  <!-- Fuentes Retro / Pixel / Cyber -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,400&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <!-- Hoja de Estilos Externa -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- CAPA 1: Canvas Fondo Animado (Estrellas, Corazones Pixel, Destellos) -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- CAPA 2: Malla / Grid Retro con profundidad radial -->
+  <div class="retro-grid-bg"></div>
+
+  <!-- CAPA 3: Efecto Scanlines CRT sobre toda la ventana -->
+  <div class="crt-scanlines"></div>
+
+  <!-- Canvas extra para Confeti Neón en la Bóveda Final -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- BARRA SUPERIOR Y2K / NAVEGACIÓN Y PROGRESO -->
+  <header class="y2k-topbar">
+    <div class="topbar-brand">
+      <span class="blinking-heart">🖤</span>
+      <span class="brand-title">Te amo mucho</span>
+    </div>
+
+    <div class="progress-wrapper">
+      <div class="progress-info">
+        <span>PROGRESO DEL SISTEMA:</span>
+        <span id="progress-text">FASE 1 / 4 (25%)</span>
+      </div>
+      <div class="progress-bar-frame">
+        <div id="progress-fill" class="progress-bar-fill"></div>
+      </div>
+    </div>
+
+    <nav class="phase-nav">
+      <button class="nav-pill active" data-target="1" title="Fase 1: El Manifiesto">01</button>
+      <button class="nav-pill locked" data-target="2" title="Fase 2: Arena de Juegos" disabled>02 🔒</button>
+      <button class="nav-pill locked" data-target="3" title="Fase 3: Tarot Gótico" disabled>03 🔒</button>
+      <button class="nav-pill locked" data-target="4" title="Fase 4: Bóveda Secreta" disabled>04 🔒</button>
+    </nav>
+  </header>
+
+  <!-- CONTENEDOR PRINCIPAL SPA -->
+  <main class="spa-container">
+
+    <!-- ==========================================
+         SECCIÓN 1: EL MANIFIESTO (CARTA ROMÁNTICA)
+         ========================================== -->
+    <section id="phase-1" class="phase-section active-section">
+      <div class="retro-window neon-pink-border">
+        <div class="window-titlebar">
+          <div class="window-title">
+            <span class="win-icon">✉</span> C:\amor\manifiesto_cumpleanos.txt - Notepad
+          </div>
+          <div class="window-controls">
+            <span class="win-btn min">_</span>
+            <span class="win-btn max">□</span>
+            <span class="win-btn close">✕</span>
+          </div>
+        </div>
+
+        <div class="window-menubar">
+          <span>Archivo</span>
+          <span>Edición</span>
+          <span>Sentimientos</span>
+          <span>Ayuda</span>
+        </div>
+
+        <div class="window-body glass-panel">
+          <div class="emo-banner">
+            <span class="sparkle">✧･ﾟ: *✧･ﾟ:*</span>
+            <h1>FELIZ CUMPLEAÑOS, MI VIDA</h1>
+            <span class="sparkle">*:･ﾟ✧*:･ﾟ✧</span>
+          </div>
+
+          <div class="manifesto-hero-frame">
+            <!-- Puedes cambiar el src fácilmente por una foto juntos -->
+            <img src="image.png" alt="Nosotros" class="custom-photo-slot photo-main">
+            <div class="sticker sticker-top-left">XOXO</div>
+            <div class="sticker sticker-bottom-right">4EVER 🖤</div>
+          </div>
+
+          <div class="typewriter-box">
+            <p id="typewriter-text" class="typewriter-content"></p>
+            <span id="typewriter-cursor" class="cursor-blink">█</span>
+          </div>
+
+          <div class="manifesto-actions">
+            <button id="btn-skip-typewriter" class="y2k-btn btn-secondary btn-small">
+              ⚡ Completar Texto
+            </button>
+            <button id="btn-unlock-phase-2" class="y2k-btn btn-neon-glow hidden-btn">
+              🎮 ENTRAR A LA ARENA DE JUEGOS [FASE 2] 🎮
+            </button>
+          </div>
+        </div>
+
+        <div class="window-statusbar">
+          <span>Estado: Enamorado al 1000%</span>
+          <span>UTF-8 | Y2K-EMO-CORE</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECCIÓN 2: LA ARENA DE JUEGOS (4 MINIJUEGOS)
+         ========================================== -->
+    <section id="phase-2" class="phase-section">
+      <div class="retro-window neon-cyan-border">
+        <div class="window-titlebar">
+          <div class="window-title">
+            <span class="win-icon">👾</span> CyberGothic_Arcade_Hub.exe
+          </div>
+          <div class="window-controls">
+            <span class="win-btn min">_</span>
+            <span class="win-btn max">□</span>
+            <span class="win-btn close">✕</span>
+          </div>
+        </div>
+
+        <div class="window-body glass-panel">
+          <div class="section-header">
+            <h2 class="cyber-heading">✧ LA ARENA DE JUEGOS ✧</h2>
+            <p class="cyber-subtitle">Supera los 4 desafíos arcade para desbloquear el Oráculo Gótico.</p>
+          </div>
+
+          <!-- Marcador de los 4 minijuegos -->
+          <div class="arcade-status-grid">
+            <div id="badge-game-a" class="arcade-badge active-game" data-game="a">
+              <span class="badge-icon">🃏</span>
+              <span class="badge-name">1. Memory</span>
+              <span class="badge-state">PENDIENTE</span>
+            </div>
+            <div id="badge-game-b" class="arcade-badge" data-game="b">
+              <span class="badge-icon">🥀</span>
+              <span class="badge-name">2. Rosas</span>
+              <span class="badge-state">PENDIENTE</span>
+            </div>
+            <div id="badge-game-c" class="arcade-badge" data-game="c">
+              <span class="badge-icon">💘</span>
+              <span class="badge-name">3. Quiz</span>
+              <span class="badge-state">PENDIENTE</span>
+            </div>
+            <div id="badge-game-d" class="arcade-badge" data-game="d">
+              <span class="badge-icon">🔢</span>
+              <span class="badge-name">4. PIN</span>
+              <span class="badge-state">PENDIENTE</span>
+            </div>
+          </div>
+
+          <!-- CONTENEDOR MINIJUEGO A: GOTHIC MEMORY -->
+          <div id="game-panel-a" class="game-subpanel active-subpanel glass-card">
+            <div class="subpanel-header">
+              <h3>[MINIJUEGO A] GOTHIC MEMORY</h3>
+              <p>Encuentra los 6 pares de símbolos emo/góticos ocultos.</p>
+              <div class="game-stats">
+                <span>Pares: <strong id="memory-pairs">0/6</strong></span>
+                <span>Movimientos: <strong id="memory-moves">0</strong></span>
+                <button id="btn-reset-memory" class="y2k-btn btn-small btn-secondary">Reiniciar</button>
+              </div>
+            </div>
+            <div id="memory-board" class="memory-grid">
+              <!-- Generado por JS -->
+            </div>
+            <div id="memory-win-msg" class="game-win-banner hidden">
+              ✨ ¡MEMORIA COMPLETADA! Pasando al siguiente desafío... ✨
+            </div>
+          </div>
+
+          <!-- CONTENEDOR MINIJUEGO B: CAZADOR DE ROSAS -->
+          <div id="game-panel-b" class="game-subpanel glass-card">
+            <div class="subpanel-header">
+              <h3>[MINIJUEGO B] CAZADOR DE ROSAS</h3>
+              <p>Mueve la canasta gótica con el mouse, el dedo o las flechas (◀ ▶). Recolecta <strong>10 rosas (🥀)</strong> y esquiva las espinas letales (⚡).</p>
+              <div class="game-stats">
+                <span>Rosas: <strong id="roses-score">0 / 10</strong></span>
+                <span>Vidas: <strong id="roses-lives">🖤🖤🖤</strong></span>
+                <button id="btn-start-roses" class="y2k-btn btn-small btn-neon-glow">▶ INICIAR JUEGO</button>
+              </div>
+            </div>
+            <div class="canvas-arcade-wrapper">
+              <canvas id="roses-canvas" width="520" height="340"></canvas>
+              <div id="roses-overlay" class="canvas-overlay">
+                <p id="roses-overlay-text">Presiona "INICIAR JUEGO" para atrapar las 10 rosas</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONTENEDOR MINIJUEGO C: QUIZ DE PAREJA -->
+          <div id="game-panel-c" class="game-subpanel glass-card">
+            <div class="subpanel-header">
+              <h3>[MINIJUEGO C] TRIVIA DEL CORAZÓN</h3>
+              <p>Responde correctamente las 3 preguntas para demostrar nuestra conexión.</p>
+            </div>
+            <div id="quiz-container" class="quiz-box">
+              <div class="quiz-progress" id="quiz-progress-label">Pregunta 1 de 3</div>
+              <h4 id="quiz-question" class="quiz-question-text">Cargando pregunta...</h4>
+              <div id="quiz-options" class="quiz-options-grid">
+                <!-- Opciones JS -->
+              </div>
+              <p id="quiz-feedback" class="quiz-feedback"></p>
+            </div>
+          </div>
+
+          <!-- CONTENEDOR MINIJUEGO D: ACERTIJO PIN -->
+          <div id="game-panel-d" class="game-subpanel glass-card">
+            <div class="subpanel-header">
+              <h3>[MINIJUEGO D] EL CÓDIGO SECRETO (PIN)</h3>
+              <p class="riddle-clue">
+                <strong>PISTA DEL ACERTIJO:</strong><br>
+                "Cuatro dígitos abren el portal hacia tu destino...<br>
+                Los dos primeros son el <em>día</em> en el que misito nacio,<br>
+                y los dos últimos son el <em>mes</em> (con cero inicial) de su cumpleaños."
+              </p>
+            </div>
+
+            <div class="pin-pad-wrapper">
+              <div id="pin-display" class="pin-screen">_ _ _ _</div>
+              <div class="pin-keypad">
+                <button class="pin-key" data-digit="1">1</button>
+                <button class="pin-key" data-digit="2">2</button>
+                <button class="pin-key" data-digit="3">3</button>
+                <button class="pin-key" data-digit="4">4</button>
+                <button class="pin-key" data-digit="5">5</button>
+                <button class="pin-key" data-digit="6">6</button>
+                <button class="pin-key" data-digit="7">7</button>
+                <button class="pin-key" data-digit="8">8</button>
+                <button class="pin-key" data-digit="9">9</button>
+                <button class="pin-key key-clear" data-action="clear">CLR</button>
+                <button class="pin-key" data-digit="0">0</button>
+                <button class="pin-key key-enter" data-action="enter">OK</button>
+              </div>
+              <p id="pin-feedback" class="pin-feedback"></p>
+            </div>
+          </div>
+
+          <!-- Botón para desbloquear Fase 4 al ganar los 4 juegos -->
+          <div class="center-action">
+            <button id="btn-unlock-phase-3" class="y2k-btn btn-neon-glow hidden-btn">
+              🔮 INVOCAR EL ORÁCULO DE TAROT [FASE 3] 🔮
+            </button>
+          </div>
+        </div>
+
+        <div class="window-statusbar">
+          <span id="arcade-global-status">Juegos completados: 0 / 4</span>
+          <span>INSERT COIN: FREE FOR MY LOVE</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECCIÓN 3: EL ORÁCULO DE TAROT GÓTICO
+         ========================================== -->
+    <section id="phase-3" class="phase-section">
+      <div class="retro-window neon-purple-border">
+        <div class="window-titlebar">
+          <div class="window-title">
+            <span class="win-icon">🌙</span> Mystic_Gothic_Tarot_v1.3.exe
+          </div>
+          <div class="window-controls">
+            <span class="win-btn min">_</span>
+            <span class="win-btn max">□</span>
+            <span class="win-btn close">✕</span>
+          </div>
+        </div>
+
+        <div class="window-body glass-panel">
+          <div class="section-header">
+            <h2 class="cyber-heading">✧ EL ORÁCULO DE TAROT GÓTICO ✧</h2>
+            <p class="cyber-subtitle">Haz clic sobre cada una de las 3 cartas arcanas para revelar nuestro destino...</p>
+          </div>
+
+          <div class="tarot-spread">
+            <!-- Carta 1 -->
+            <div class="tarot-card-scene" data-card="1">
+              <div class="tarot-card-inner">
+                <div class="tarot-face tarot-back">
+                  <div class="tarot-back-pattern">
+                    <span class="tarot-moon">☾</span>
+                    <span class="tarot-sigil">✦ I ✦</span>
+                  </div>
+                </div>
+                <div class="tarot-face tarot-front">
+                  <div class="tarot-roman">XIII • THE DEATH</div>
+                  <div class="tarot-art">💀🥀💀</div>
+                  <h4 class="tarot-name">The Death</h4>
+                  <p class="tarot-reading">
+                    La muerte podrá terminar con nosotros, pero nunca con lo que sentimos. Quiero estar contigo en esta vida y, cuando llegue la otra, encontrarte de nuevo para seguir amándote; ni siquiera la muerte podrá separarnos.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Carta 2 -->
+            <div class="tarot-card-scene" data-card="2">
+              <div class="tarot-card-inner">
+                <div class="tarot-face tarot-back">
+                  <div class="tarot-back-pattern">
+                    <span class="tarot-moon">☾</span>
+                    <span class="tarot-sigil">✦ II ✦</span>
+                  </div>
+                </div>
+                <div class="tarot-face tarot-front">
+                  <div class="tarot-roman">XV • THE DEVIL</div>
+                  <div class="tarot-art">😈🖤😈</div>
+                  <h4 class="tarot-name">The Devil</h4>
+                  <p class="tarot-reading">
+                    Esta carta habla de una atracción intensa y tu nezita, desde que hablamos me tienes encantado, elijo compartir contigo nuestras cosotas, nuestras risas y este amor que sera por toda la ternidad.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Carta 3 -->
+            <div class="tarot-card-scene" data-card="3">
+              <div class="tarot-card-inner">
+                <div class="tarot-face tarot-back">
+                  <div class="tarot-back-pattern">
+                    <span class="tarot-moon">☾</span>
+                    <span class="tarot-sigil">✦ III ✦</span>
+                  </div>
+                </div>
+                <div class="tarot-face tarot-front">
+                  <div class="tarot-roman">XVIII • THE MOON</div>
+                  <div class="tarot-art">🌙✨🖤</div>
+                  <h4 class="tarot-name">The Moon</h4>
+                  <p class="tarot-reading">
+                    Aunque a veces las cosas se pongan dificiles por peleas o tristezas, quiero que estemos juntos. Confío en lo que sentimos tu y yo, siempre te amare con toda mi alma y mi corazon, y quiero que sepas que siempre estare a tu lado para apoyarte en todo lo que necesites.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p id="tarot-counter-msg" class="tarot-status-text">Cartas reveladas: 0 / 3</p>
+
+          <div class="center-action">
+            <button id="btn-unlock-phase-4" class="y2k-btn btn-neon-glow hidden-btn">
+              🔓 ACCEDER A LA BÓVEDA DEL REGALO [FASE FINAL] 🔓
+            </button>
+          </div>
+        </div>
+
+        <div class="window-statusbar">
+          <span>Lectura Astral: Sincronizada</span>
+          <span>Energía: 100% Romántica</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECCIÓN 4: LA BÓVEDA DEL REGALO (ROBUX VAULT)
+         ========================================== -->
+    <section id="phase-4" class="phase-section">
+      <div class="retro-window neon-pink-border">
+        <div class="window-titlebar">
+          <div class="window-title">
+            <span class="win-icon">💎</span> Secret_Birthday_Vault_v999.exe
+          </div>
+          <div class="window-controls">
+            <span class="win-btn min">_</span>
+            <span class="win-btn max">□</span>
+            <span class="win-btn close">✕</span>
+          </div>
+        </div>
+
+        <div class="window-body glass-panel">
+          <div class="section-header">
+            <h2 class="cyber-heading">✧ ¿CUÁL ES NUESTRA FECHA DE ANIVERSARIO? ✧</h2>
+            <p class="cyber-subtitle">Último protocolo de seguridad antes de abrir tu regalo especial de cumpleaños.</p>
+          </div>
+
+          <!-- CANDADO DE SEGURIDAD E INGRESO DE ANIVERSARIO -->
+          <div id="vault-lock-screen" class="vault-container glass-card">
+            <div id="vault-door" class="vault-safe-visual">
+              <div class="safe-wheel" id="safe-wheel">⚙️</div>
+              <div class="safe-status-led" id="safe-led">BLOQUEADO</div>
+            </div>
+
+            <div class="security-question-box">
+              <label for="birthday-input" class="security-label">
+                🔐 PREGUNTA DE SEGURIDAD OBLIGATORIA:<br>
+                <span>¿Cuál es nuestra fecha de aniversario?</span>
+              </label>
+              <input
+                type="text"
+                id="birthday-input"
+                class="y2k-input"
+                placeholder="Ej: 1 de enero"
+                autocomplete="off"
+              >
+              <button id="btn-open-vault" class="y2k-btn btn-neon-glow">
+                ⚡ DESBLOQUEAR BÓVEDA ⚡
+              </button>
+              <p id="vault-error-msg" class="vault-error"></p>
+            </div>
+          </div>
+
+          <!-- RECOMPENSA DESBLOQUEADA (OCULTA HASTA RESPONDER BIEN) -->
+          <div id="vault-reward-screen" class="vault-reward-card hidden">
+            <div class="reward-sparkles">✧･ﾟ: * ¡ACCESO CONCEDIDO, FELIZ CUMPLEAÑOS MI AMOR! *:･ﾟ✧</div>
+            
+            <div class="robux-card-neon">
+              <div class="robux-badge-top">GIFT CARD DIGITAL OFICIAL</div>
+              <div class="robux-amount">
+                <span class="robux-hex">⬡</span> 1,000 ROBUX
+              </div>
+              <p class="robux-message">
+                Para que te compres tus outfits super astetiks o lo que más te guste, Te amo muchísimo papita
+              </p>
+
+              <!-- IMPORTANTE: REEMPLAZA AQUÍ EL CÓDIGO REAL DE TU TARJETA DE ROBUX -->
+              <div class="code-display-wrapper">
+                <span id="robux-secret-code" class="robux-code-text">RBX9-LOVE-0325-GOTH</span>
+              </div>
+
+              <div class="reward-buttons-row">
+                <div class="copy-btn-wrapper">
+                  <button id="btn-copy-code" class="y2k-btn btn-neon-cyan">
+                    📋 Copiar Código
+                  </button>
+                  <span id="copy-tooltip" class="floating-copy-feedback">¡Copiado! 🖤</span>
+                </div>
+
+                <a
+                  href="https://www.roblox.com/redeem"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="y2k-btn btn-neon-glow redeem-link-btn"
+                >
+                  🚀 Canjear en Roblox.com ↗
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="window-statusbar">
+          <span id="vault-footer-status">Seguridad: Nivel Máximo</span>
+          <span>Hecho con todo mi 🖤 para ti</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="y2k-footer">
+    <p>✧ Hecho a mano con código, nostalgia Y2K y muchísimo amor para la mejor novia del universo ✧</p>
+  </footer>
+
+  <!-- Lógica organizada por módulos -->
+  <script src="js/app-state.js"></script>
+  <script src="js/background.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/manifesto.js"></script>
+  <script src="js/arcade.js"></script>
+  <script src="js/tarot.js"></script>
+  <script src="js/vault.js"></script>
+</body>
+</html>

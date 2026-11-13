@@ -1,0 +1,137 @@
+/* ==========================================================================
+   VARIABLES GLOBALES & PALETA Y2K EMO TUMBLR / SCENE 2000s
+   ========================================================================== */
+:root {
+  --bg-charcoal: #08080c;
+  --bg-panel: rgba(16, 10, 28, 0.72);
+  --bg-card: rgba(24, 14, 40, 0.68);
+  --neon-pink: #ff007f;
+  --neon-pink-soft: rgba(255, 0, 127, 0.45);
+  --cyber-purple: #8b00ff;
+  --cyber-purple-soft: rgba(139, 0, 255, 0.45);
+  --neon-cyan: #00f0ff;
+  --neon-cyan-soft: rgba(0, 240, 255, 0.45);
+  --silver-light: #e4e4f0;
+  --silver-muted: #a6a4b8;
+  --chrome-dark: #252236;
+  --chrome-border: #d0cde1;
+  --danger-red: #ff2a55;
+  --success-green: #00ff9d;
+
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-vt: 'VT323', monospace;
+  --font-cyber: 'Chakra Petch', sans-serif;
+}
+
+/* ==========================================================================
+   CURSORES PERSONALIZADOS ESTILO CORAZÓN / VARITA NEÓN Y RESETEO
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-charcoal);
+  color: var(--silver-light);
+  font-family: var(--font-cyber);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  /* Cursor personalizado SVG estilo flecha ciber-rosa */
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'><polygon points='2,2 2,22 8,16 13,26 17,24 12,14 20,14' fill='%23ff007f' stroke='%2300f0ff' stroke-width='1.5'/></svg>") 2 2, auto;
+}
+
+button,
+a,
+.tarot-card-scene,
+.memory-card,
+.arcade-badge,
+input {
+  /* Cursor varita/corazón brillante en interactivos */
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><text x='2' y='22' font-size='20'>💖</text></svg>") 10 10, pointer;
+}
+
+::selection {
+  background: var(--neon-pink);
+  color: #ffffff;
+}
+
+/* Scrollbar Estilo Winamp / Cyber */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0712;
+  border-left: 1px solid var(--cyber-purple);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--neon-pink), var(--cyber-purple));
+  border-radius: 2px;
+  box-shadow: 0 0 8px var(--neon-pink);
+}
+
+/* ==========================================================================
+   SISTEMA DE FONDOS ENVOLVENTES MULTICAPA (SOLUCIÓN AL FONDO VACÍO)
+   ========================================================================== */
+
+/* CAPA 1: Canvas Animado Fijo */
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* CAPA 2: Malla / Grid Retro con Degradado Radial */
+.retro-grid-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 50% 45%, rgba(139, 0, 255, 0.20) 0%, rgba(255, 0, 127, 0.08) 38%, rgba(8, 8, 12, 0.92) 80%),
+    linear-gradient(rgba(255, 0, 127, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.08) 1px, transparent 1px);
+  background-size: 100% 100%, 44px 44px, 44px 44px;
+  background-position: center center;
+}
+
+/* CAPA 3: Scanlines CRT Sutiles */
+.crt-scanlines {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0px,
+    rgba(255, 255, 255, 0) 2px,
+    rgba(0, 0, 0, 0.24) 3px,
+    rgba(0, 0, 0, 0.24) 4px
+  );
+  opacity: 0.65;
+}
+
+/* Canvas Confeti para la Bóveda */
+#confetti-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9990;
+  pointer-events: none;
+}
+
